@@ -12,7 +12,7 @@ its different URI components.
 2. The URL parameter can be assumed to be always valid, conforming to the
   Generic URI Syntax.
 3. The URL parameter may contain percent-encoded characters. These need to be
-  translated back to the original characters in the parsed output.
+  decoded back to the original characters in the parsed output.
 
 ### Output
 4. The `parse` function must return a Javascript object containing the parsed
@@ -21,9 +21,11 @@ its different URI components.
   set to `null`.
 6. The __authority__ component should be broken further into an object which
   contains its subcomponents.
-7. The __query__ component should be broken further into an object which
+7. The __path__ component is always defined. It must either be an empty string
+  or must start with a forward slash `/`.
+8. The __query__ component should be broken further into an object which
   contains the different key-value pairs it contains.
-8. If the __port__ component is not defined in the given URL, use the default
+9. If the __port__ component is not defined in the given URL, use the default
   port number for the scheme being used, if available.
 
 
@@ -82,3 +84,7 @@ tests passed or failed.
 
 - You may implement additional functions as you need, as long as the `parse`
   function behaves as specified in the instructions. Have fun! :)
+- In case of confusions over any part of the URI syntax from the discussions
+  and from other online references, refer to the official URI: Generic Syntax
+  document (https://tools.ietf.org/html/rfc3986). Whatever it says is what's
+  going to be followed.
