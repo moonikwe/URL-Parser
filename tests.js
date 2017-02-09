@@ -11,7 +11,14 @@ var testCases = {
   'http://www.domain.com/path#anchor': 'http|^|^|www.domain.com|80|/path|^|anchor',
   'http://atpass:foo%40bar@127.0.0.1:8080/path?search=foo#bar': 'http|atpass|foo@bar|127.0.0.1|8080|/path|search=foo|bar',
   'http://user:pass@host.com:81/directory/file.ext?query=1#anchor': 'http|user|pass|host.com|81|/directory/file.ext|query=1|anchor',
-  'https://example.com/subjects?name=Web%20Engineering': 'https|^|^|example.com|443|/subjects|name=Web Engineering|^'
+  'https://example.com/subjects?name=Web%20Engineering': 'https|^|^|example.com|443|/subjects|name=Web Engineering|^',
+  'http://domain.com?poo=javascript%20decode%20uri%20%2B%20sign%20to%20space': 'http|^|^|domain.com|80||poo=javascript decode uri + sign to space|^',
+  'http://www.domain.com/#!/first/second/?test=foo': 'http|^|^|www.domain.com|80|/|^|!/first/second/?test=foo',
+  'file:///home/root/docs/dirs/directory%20with%20spaces': 'file|^|^|^|^|/home/root/docs/dirs/directory with spaces|^|^',
+  'http://localhost#why=do&this': 'http|^|^|localhost|80||^|why=do&this',
+  'http://jack:blarney@www.foo.com/bar/foo/acme?stuff=thing&foo=bar&blarg=snoggle#place': 'http|jack|blarney|www.foo.com|80|/bar/foo/acme|stuff=thing,foo=bar,blarg=snoggle|place',
+  'http://u:p@0.0.0.0:1001/a/b/c?one=1&two=2#three': 'http|u|p|0.0.0.0|1001|/a/b/c|one=1,two=2|three',
+  'ftp://example.com/': 'ftp|^|^|example.com|21|/|^|^',
 };
 
 
