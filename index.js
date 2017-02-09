@@ -57,7 +57,7 @@ function parse(url) {
 	authority["host"] = hostname
 	authority["port"] = portname
 
-	// path
+	// path length is 0, pathname recieves null
 	if(pathname.length == 0){
 		pathname = null;
 	}
@@ -91,7 +91,7 @@ function parse(url) {
 		var len = search.length
 		var init = 0, next
 		var query = {}
-		for (var i = 0; i <= len; i++) {
+		for (var i = 0; i <= len; i++) { // this loop takes the elements of the query
 			next = i
 			if(search.charAt(i) == '='){
 				var name = search.substring(init, next)
